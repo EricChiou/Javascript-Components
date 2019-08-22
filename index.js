@@ -1,8 +1,15 @@
+const componentList = [
+  'finger-slide',
+  'svg-ring',
+  'image-editor'
+]
+
+let showMenu = false;
+
 window.onload = () => {
-  initComponent();
+  selectComponent(0);
 };
 
-function initComponent() {
-  initfingerSlide();
-  initImageEditor();
+function selectComponent(index) {
+  document.getElementById('component-iframe').src = `./${componentList[index]}/${componentList[index]}.html`;
 }

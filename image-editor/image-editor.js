@@ -1,37 +1,38 @@
-const imageEditorParams = {
-  filterWidth: 250,
-  filterHeight: 250,
-  fiiterBorderWidth: 25,
-  originalFile: null,
-  imageWidth: 0,
-  imageHeight: 0,
-  imageDeg: 0,
-  imagePosX: 0,
-  imagePosY: 0,
-  amplification: 1
-};
+const filterWidth = 250;
+const filterHeight = 250;
+const fiiterBorderWidth = 25;
 
-function initImageEditor() {
+let originalFile = null;
+let imageWidth = 0;
+let imageHeight = 0;
+let imageDeg = 0;
+let imagePosX = 0;
+let imagePosY = 0;
+let amplification = 1;
+
+window.onload = () => { init(); }
+
+function init() {
   const container = document.getElementById('image-filter');
   if (container) {
-    container.style.width = (imageEditorParams.filterWidth + (imageEditorParams.fiiterBorderWidth * 2)) + 'px';
-    container.style.height = (imageEditorParams.filterHeight + (imageEditorParams.fiiterBorderWidth * 2)) + 'px';
+    container.style.width = (filterWidth + (fiiterBorderWidth * 2)) + 'px';
+    container.style.height = (filterHeight + (fiiterBorderWidth * 2)) + 'px';
   }
   const img = document.getElementById('image');
   if (img) {
     img.style.width = '0px';
     img.style.height = '0px';
-    img.style.top = `${(imageEditorParams.filterWidth / 2) + imageEditorParams.fiiterBorderWidth}px`;
-    img.style.left = `${(imageEditorParams.filterHeight / 2) + imageEditorParams.fiiterBorderWidth}px`;
+    img.style.top = `${(filterWidth / 2) + fiiterBorderWidth}px`;
+    img.style.left = `${(filterHeight / 2) + fiiterBorderWidth}px`;
   }
   const filter = document.getElementById('filter');
   if (filter) {
-    filter.style.border = `${imageEditorParams.fiiterBorderWidth}px solid rgba(0, 0, 0, 0.4)`;
+    filter.style.border = `${fiiterBorderWidth}px solid rgba(0, 0, 0, 0.4)`;
   }
   const canvas = document.getElementById('filter-image');
   if (canvas) {
-    canvas.width = imageEditorParams.filterWidth;
-    canvas.height = imageEditorParams.filterHeight;
+    canvas.width = filterWidth;
+    canvas.height = filterHeight;
   }
   dragElement();
 }
@@ -39,9 +40,9 @@ function initImageEditor() {
 function selectImage(event) {
   if (event.target.files.length < 1) { return; }
   if (event.target.files[0].type.indexOf('image') < 0) { return; }
-  imageEditorParams.originalFile = event.target.files[0];
+  originalFile = event.target.files[0];
   const img = document.getElementById('image');
-  img.src = URL.createObjectURL(imageEditorParams.originalFile);
+  img.src = URL.createObjectURL(originalFile);
   event.target.value = null;
 }
 
@@ -77,34 +78,34 @@ function dragElement() {
 }
 
 function imageOnload() {
-  imageEditorParams.imageDeg = 0;
-  imageEditorParams.amplification = 1;
-  document.getElementById('amplification').innerText = `Amplification: ${imageEditorParams.amplification}`;
+  imageDeg = 0;
+  amplification = 1;
+  document.getElementById('amplification').innerText = `Amplification: ${amplification}`;
 
   const img = document.getElementById('image');
-  img.className = `rotate${imageEditorParams.imageDeg}`;
+  img.className = `rotate${imageDeg}`;
   if (img.naturalWidth < img.naturalHeight) {
-    imageEditorParams.imageWidth = imageEditorParams.filterWidth;
-    imageEditorParams.imageHeight = img.naturalHeight / img.naturalWidth * imageEditorParams.filterWidth;
+    imageWidth = filterWidth;
+    imageHeight = img.naturalHeight / img.naturalWidth * filterWidth;
 
-    imageEditorParams.imagePosX = imageEditorParams.fiiterBorderWidth;
-    imageEditorParams.imagePosY = (imageEditorParams.filterHeight / 2) + imageEditorParams.fiiterBorderWidth - (imageEditorParams.imageHeight / 2);
+    imagePosX = fiiterBorderWidth;
+    imagePosY = (filterHeight / 2) + fiiterBorderWidth - (imageHeight / 2);
   } else {
-    imageEditorParams.imageWidth = img.naturalWidth / img.naturalHeight * imageEditorParams.filterHeight;
-    imageEditorParams.imageHeight = imageEditorParams.filterHeight;
+    imageWidth = img.naturalWidth / img.naturalHeight * filterHeight;
+    imageHeight = filterHeight;
 
-    imageEditorParams.imagePosX = (imageEditorParams.filterWidth / 2) + imageEditorParams.fiiterBorderWidth - (imageEditorParams.imageWidth / 2);
-    imageEditorParams.imagePosY = imageEditorParams.fiiterBorderWidth;
+    imagePosX = (filterWidth / 2) + fiiterBorderWidth - (imageWidth / 2);
+    imagePosY = fiiterBorderWidth;
   }
-  img.style.width = `${imageEditorParams.imageWidth}px`;
-  img.style.height = `${imageEditorParams.imageHeight}px`;
+  img.style.width = `${imageWidth}px`;
+  img.style.height = `${imageHeight}px`;
 
-  img.style.left = `${imageEditorParams.imagePosX}px`;
-  img.style.top = `${imageEditorParams.imagePosY}px`;
+  img.style.left = `${imagePosX}px`;
+  img.style.top = `${imagePosY}px`;
 }
 
 function filterImage() {
-  if (!imageEditorParams.originalFile) { return; }
+  if (!originalFile) { return; }
   const img = document.querySelector('#image');
   const canvas = document.querySelector('#filter-image');
   const context = canvas.getContext('2d');
@@ -115,31 +116,31 @@ function filterImage() {
 
   let x = 0;
   let y = 0;
-  if (imageEditorParams.imageDeg === 0) {
-    x += (imageEditorParams.imagePosX - imageEditorParams.fiiterBorderWidth);
-    y += (imageEditorParams.imagePosY - imageEditorParams.fiiterBorderWidth);
-  } else if (imageEditorParams.imageDeg === 90) {
+  if (imageDeg === 0) {
+    x += (imagePosX - fiiterBorderWidth);
+    y += (imagePosY - fiiterBorderWidth);
+  } else if (imageDeg === 90) {
     y = -img.height;
 
-    x += (imageEditorParams.imagePosY - imageEditorParams.fiiterBorderWidth);
-    y -= (imageEditorParams.imagePosX - imageEditorParams.fiiterBorderWidth);
-  } else if (imageEditorParams.imageDeg === 180) {
+    x += (imagePosY - fiiterBorderWidth);
+    y -= (imagePosX - fiiterBorderWidth);
+  } else if (imageDeg === 180) {
     x = -img.width;
     y = -img.height;
 
-    x -= (imageEditorParams.imagePosX - imageEditorParams.fiiterBorderWidth);
-    y -= (imageEditorParams.imagePosY - imageEditorParams.fiiterBorderWidth);
-  } else if (imageEditorParams.imageDeg === 270) {
+    x -= (imagePosX - fiiterBorderWidth);
+    y -= (imagePosY - fiiterBorderWidth);
+  } else if (imageDeg === 270) {
     x = -img.width;
 
-    x -= (imageEditorParams.imagePosY - imageEditorParams.fiiterBorderWidth);
-    y += (imageEditorParams.imagePosX - imageEditorParams.fiiterBorderWidth);
+    x -= (imagePosY - fiiterBorderWidth);
+    y += (imagePosX - fiiterBorderWidth);
   }
-  context.rotate(imageEditorParams.imageDeg * Math.PI / 180);
+  context.rotate(imageDeg * Math.PI / 180);
   context.translate(x, y);
   context.drawImage(img, 0, 0, img.width, img.height);
   context.translate(-x, -y);
-  context.rotate(-imageEditorParams.imageDeg * Math.PI / 180);
+  context.rotate(-imageDeg * Math.PI / 180);
 
   const dataURL = canvas.toDataURL();
   url2File(dataURL).then((file) => { console.log(file); });
@@ -149,46 +150,46 @@ function url2File(url) {
   return (fetch(url).then((res) => {
     return res.arrayBuffer();
   }).then((buffer) => {
-    return new File([buffer], imageEditorParams.originalFile.name, { type: imageEditorParams.originalFile.type });
+    return new File([buffer], originalFile.name, { type: originalFile.type });
   }));
 }
 
 function rotate(degVariable) {
   const img = document.getElementById('image');
-  imageEditorParams.imageDeg += degVariable;
-  if (imageEditorParams.imageDeg < 0) {
-    imageEditorParams.imageDeg += 360;
-  } else if (imageEditorParams.imageDeg > 270) {
-    imageEditorParams.imageDeg -= 360;
+  imageDeg += degVariable;
+  if (imageDeg < 0) {
+    imageDeg += 360;
+  } else if (imageDeg > 270) {
+    imageDeg -= 360;
   }
-  img.className = `rotate${imageEditorParams.imageDeg}`;
+  img.className = `rotate${imageDeg}`;
 
   calculatePos(Number(img.style.left.slice(0, -2)), Number(img.style.top.slice(0, -2)));
 }
 
 function zoom(variable) {
-  imageEditorParams.amplification += variable;
-  if (imageEditorParams.amplification > 2) { imageEditorParams.amplification = 2; return; }
-  if (imageEditorParams.amplification < 0.5) { imageEditorParams.amplification = 0.5; return; }
-  imageEditorParams.amplification = Math.round(imageEditorParams.amplification * 10) / 10;
+  amplification += variable;
+  if (amplification > 2) { amplification = 2; return; }
+  if (amplification < 0.5) { amplification = 0.5; return; }
+  amplification = Math.round(amplification * 10) / 10;
 
-  document.getElementById('amplification').innerText = `Amplification: ${imageEditorParams.amplification}`;
+  document.getElementById('amplification').innerText = `Amplification: ${amplification}`;
   const img = document.getElementById('image');
-  img.style.width = `${imageEditorParams.imageWidth * imageEditorParams.amplification}px`;
-  img.style.height = `${imageEditorParams.imageHeight * imageEditorParams.amplification}px`;
+  img.style.width = `${imageWidth * amplification}px`;
+  img.style.height = `${imageHeight * amplification}px`;
 
-  img.style.left = `${Number(img.style.left.slice(0, -2)) - (imageEditorParams.imageWidth / 2 * variable)}px`;
-  img.style.top = `${Number(img.style.top.slice(0, -2)) - (imageEditorParams.imageHeight / 2 * variable)}px`;
+  img.style.left = `${Number(img.style.left.slice(0, -2)) - (imageWidth / 2 * variable)}px`;
+  img.style.top = `${Number(img.style.top.slice(0, -2)) - (imageHeight / 2 * variable)}px`;
 
   calculatePos(Number(img.style.left.slice(0, -2)), Number(img.style.top.slice(0, -2)));
 }
 
 function calculatePos(x, y) {
-  if (imageEditorParams.imageDeg === 0 || imageEditorParams.imageDeg === 180) {
-    imageEditorParams.imagePosX = x;
-    imageEditorParams.imagePosY = y;
+  if (imageDeg === 0 || imageDeg === 180) {
+    imagePosX = x;
+    imagePosY = y;
   } else {
-    imageEditorParams.imagePosX = (imageEditorParams.imageWidth - imageEditorParams.imageHeight) / 2 * imageEditorParams.amplification + x;
-    imageEditorParams.imagePosY = (imageEditorParams.imageHeight - imageEditorParams.imageWidth) / 2 * imageEditorParams.amplification + y;
+    imagePosX = (imageWidth - imageHeight) / 2 * amplification + x;
+    imagePosY = (imageHeight - imageWidth) / 2 * amplification + y;
   }
 }

@@ -1,10 +1,10 @@
 #select-image {
+  display: inline-block;
   position: relative;
   padding: 3px 0;
 }
 
 #select-image>.select-img {
-  display: inline-block;
   margin: 5px 0px;
   padding: 2px 3px;
   background-color: #eeeeee;
@@ -26,7 +26,6 @@
 }
 
 #image-editor {
-  display: inline-block;
   vertical-align: top;
 }
 
@@ -36,7 +35,6 @@
 }
 
 #output-image {
-  display: inline-block;
   margin-top: 25px;
   margin-left: 25px;
   vertical-align: top;

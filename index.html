@@ -11,103 +11,31 @@
   <title>Javascript Components：Calico & MooMoo</title>
   <link rel="icon" type="image/x-icon" href="./favicon.png">
 
+  <link href="./style.css" rel="stylesheet" type="text/css">
   <link href="./index.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-  <h2>Javascript Components</h2>
-  <hr />
-  <div class="main-container">
-    <!-- Finger Slide -->
-    <div class="component">
-      <div class="component-name">Finger Slide</div>
-      <div class="component-content">
-        <link href="./finger-slide/finger-slide.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="./finger-slide/finger-slide.js"></script>
-        <div id="finger-slide">
-          Slide Here
-        </div>
-      </div>
+  <div id="menu-container">
+    <h2>
+      <span class="title">Javascript Components</span>
+      <span class="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#ffffff" />
+        </svg>
+      </span>
+    </h2>
+    <div class="component-list">
+      <ul>
+        <li onclick="selectComponent(0)">Finger Slide</li>
+        <li onclick="selectComponent(1)">SVG Ring</li>
+        <li onclick="selectComponent(2)">Image Editor</li>
+      </ul>
     </div>
-    <!-- Finger Slide End -->
-    <hr />
-    <!-- SVG Ring -->
-    <div class="component">
-      <div class="component-name">SVG Ring</div>
-      <div class="component-content">
-        <div id="svg-ring">
-          <style>
-            #svg-ring svg {
-              transform: rotate(-90deg);
-            }
-          </style>
-          <div>
-            <svg width="300" height="300">
-              <defs>
-                <linearGradient x1="1" y1="0" x2="0" y2="0" id="gradient1">
-                  <stop offset="0%" stop-color="#e52c5c"></stop>
-                  <stop offset="100%" stop-color="#ab5aea"></stop>
-                </linearGradient>
-                <linearGradient x1="1" y1="0" x2="0" y2="0" id="gradient2">
-                  <stop offset="0%" stop-color="#4352f3"></stop>
-                  <stop offset="100%" stop-color="#ab5aea"></stop>
-                </linearGradient>
-              </defs>
-              <g stroke-width="30" fill="none">
-                <!-- Background Ring -->
-                <circle cx="150" cy="150" r="130" stroke="#eeeeee" stroke-dasharray="816.4 816.4"></circle>
-                <!-- Left Half Ring -->
-                <circle cx="150" cy="150" r="130" stroke="url('#gradient1')" stroke-dasharray="737.76 816.4"></circle>
-                <!-- Right Half Ring -->
-                <circle cx="150" cy="150" r="130" stroke="url('#gradient2')" stroke-dasharray="408.2 816.4"></circle>
-              </g>
-            </svg>
-            <span id="timeSecond" class="time-second"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- SVG Ring End -->
-    <hr />
-    <!-- Image Editer -->
-    <div class="component">
-      <div class="component-name">Image Editor</div>
-      <div class="component-content">
-        <link href="./image-editor/image-editor.css" rel="stylesheet" type="text/css">
-        <script src="./image-editor/image-editor.js"></script>
-        <label id="select-image">
-          <div class="select-img">Select Image</div>
-          <input type="file" accept="image/*" onchange="selectImage(event)">
-        </label>
-        <div id="image-editor-container">
-          <div id="image-editor">
-            <div id="image-filter">
-              <img id="image" onload="imageOnload()">
-              <div id="filter"></div>
-            </div>
-            <div id="edit-image-ui">
-              <span id="amplification">Amplification: 1</span>
-              <br>
-              <button onclick="zoom(0.1)">Zoom In</button>
-              <button onclick="zoom(-0.1)">Zoom Out</button>
-              <button onclick="rotate(-90)">Rotate Left</button>
-              <button onclick="rotate(90)">Rotate Right</button>
-              <button onclick="filterImage()">Capture</button>
-            </div>
-          </div>
-          <div id="output-image">
-            <canvas id="filter-image"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Image Editer End -->
-    <hr>
-    <!-- <div class="component">
-      <div class="component-name">New Component</div>
-      <div class="component-content"></div>
-    </div>
-    <hr> -->
+  </div>
+  <div id="main-container">
+    <iframe id="component-iframe"></iframe>
   </div>
 
   <script type="text/javascript" src="./index.js"></script>

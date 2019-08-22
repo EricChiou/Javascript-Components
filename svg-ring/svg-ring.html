@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html lang="zh">
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>SVG Ring：Calico & MooMoo</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+
+  <link href="../style.css" rel="stylesheet" type="text/css">
+  <link href="./svg-ring.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="component-name">SVG Ring</div>
+  <hr>
+  <div id="svg-ring">
+    <div>
+      <svg width="300" height="300">
+        <defs>
+          <linearGradient x1="1" y1="0" x2="0" y2="0" id="gradient1">
+            <stop offset="0%" stop-color="#e52c5c"></stop>
+            <stop offset="100%" stop-color="#ab5aea"></stop>
+          </linearGradient>
+          <linearGradient x1="1" y1="0" x2="0" y2="0" id="gradient2">
+            <stop offset="0%" stop-color="#4352f3"></stop>
+            <stop offset="100%" stop-color="#ab5aea"></stop>
+          </linearGradient>
+        </defs>
+        <g stroke-width="30" fill="none">
+          <!-- Background Ring -->
+          <circle cx="150" cy="150" r="130" stroke="#eeeeee" stroke-dasharray="816.4 816.4"></circle>
+          <!-- Left Half Ring -->
+          <circle cx="150" cy="150" r="130" stroke="url('#gradient1')" stroke-dasharray="737.76 816.4"></circle>
+          <!-- Right Half Ring -->
+          <circle cx="150" cy="150" r="130" stroke="url('#gradient2')" stroke-dasharray="408.2 816.4"></circle>
+        </g>
+      </svg>
+      <span id="timeSecond" class="time-second"></span>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html lang="zh">
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Image Editer：Calico & MooMoo</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+
+  <link href="../style.css" rel="stylesheet" type="text/css">
+  <link href="./image-editor.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="component-name">Image Editer</div>
+  <hr>
+  <label id="select-image">
+    <div class="select-img">Select Image</div>
+    <input type="file" accept="image/*" onchange="selectImage(event)">
+  </label>
+  <div id="image-editor-container">
+    <div id="image-editor">
+      <div id="image-filter">
+        <img id="image" onload="imageOnload()">
+        <div id="filter"></div>
+      </div>
+      <div id="edit-image-ui">
+        <span id="amplification">Amplification: 1</span>
+        <br>
+        <button onclick="zoom(0.1)">Zoom In</button>
+        <button onclick="zoom(-0.1)">Zoom Out</button>
+        <button onclick="rotate(-90)">Rotate Left</button>
+        <button onclick="rotate(90)">Rotate Right</button>
+        <button onclick="filterImage()">Capture</button>
+      </div>
+    </div>
+    <div id="output-image">
+      <canvas id="filter-image"></canvas>
+    </div>
+  </div>
+  <script type="text/javascript" src="./image-editor.js"></script>
+</body>
+
+</html>
