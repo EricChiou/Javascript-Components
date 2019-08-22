@@ -1,0 +1,97 @@
+#select-image {
+  position: relative;
+  padding: 3px 0;
+}
+
+#select-image>.select-img {
+  display: inline-block;
+  margin: 5px 0px;
+  padding: 2px 3px;
+  background-color: #eeeeee;
+  border: 1px solid #aaaaaa;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#select-image>.select-img:active {
+  background-color: #cccccc;
+}
+
+#select-image>input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+}
+
+#image-editor {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#image-filter {
+  position: relative;
+  overflow: hidden;
+}
+
+#output-image {
+  display: inline-block;
+  margin-top: 25px;
+  margin-left: 25px;
+  vertical-align: top;
+}
+
+#image-filter>#image {
+  position: absolute;
+  display: block;
+}
+
+#image-filter>#filter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#edit-image-ui>button {
+  margin-top: 5px;
+}
+
+#filter-image {
+  background-color: #eeeeee;
+}
+
+.rotate0 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.rotate90 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.rotate180 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.rotate270 {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
