@@ -1,21 +1,49 @@
 const componentList = [
   'finger-slide',
   'svg-ring',
-  'image-editor'
+  'image-editor',
+  'slot-machine'
 ]
 
+let index;
+
 window.onload = () => {
-  selectComponent(0);
+  const i = getSearch();
+  selectComponent(i);
 
   window.addEventListener('resize', onResize);
 };
 
-function selectComponent(index) {
+function getSearch() {
+  const search = window.location.search;
+  if (search) {
+    for (const param of search.slice(1).split('&')) {
+      const key = param.split('=')[0];
+      const name = param.split('=')[1];
+      if (key === 'component') {
+        for (let i = 0; i < componentList.length; i++) {
+          if (componentList[i] === name) {
+            return i;
+          }
+        }
+      }
+    }
+  }
+
+  return 0;
+}
+
+function selectComponent(i) {
+  if (index === i) { return; }
+
+  index = i;
   document.getElementById('component-iframe').src = `./${componentList[index]}/${componentList[index]}.html`;
 
   if (window.innerWidth < 768) {
     closeMenu();
   }
+
+  window.history.replaceState('', '', `${window.location.href.split('?')[0]}?component=${componentList[index]}`);
 }
 
 function onResize() {

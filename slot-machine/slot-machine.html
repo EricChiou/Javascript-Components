@@ -8,21 +8,27 @@
     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Finger Slide：Calico & MooMoo</title>
+  <title>Slot Machine：Calico & MooMoo</title>
   <link rel="icon" type="image/x-icon" href="../favicon.png">
 
   <link href="../style.css" rel="stylesheet" type="text/css">
-  <link href="./finger-slide.css" rel="stylesheet" type="text/css">
+  <link href="./slot-machine.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-  <div class="component-name">Finger Slide</div>
+  <div class="component-name">Slot Machine</div>
   <hr>
-  <div id="finger-slide">
-    Slide Here
+  <div id="slot-machine-container">
+    <div id="slot">
+      <div id="items">
+      </div>
+    </div>
+    <div id="shoulder">
+      <div id="arm" onclick="start()"></div>
+    </div>
   </div>
 
-  <script type="text/javascript" src="./finger-slide.js"></script>
+  <script type="text/javascript" src="./slot-machine.js"></script>
 </body>
 
 </html>
