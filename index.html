@@ -19,7 +19,7 @@
   <div id="menu-container">
     <h2>
       <span class="title">Javascript Components</span>
-      <span class="menu">
+      <span class="menu" onclick="menuOnClick()">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#ffffff" />
@@ -37,6 +37,7 @@
   <div id="main-container">
     <iframe id="component-iframe"></iframe>
   </div>
+  <div id="mask" onclick="closeMenu()"></div>
 
   <script type="text/javascript" src="./index.js"></script>
 </body>

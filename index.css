@@ -1,4 +1,5 @@
 #menu-container {
+  position: relative;
   float: left;
   padding: 15px 10px;
   width: 280px;
@@ -42,11 +43,21 @@
   overflow: auto;
 }
 
+#mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
 @media only screen and (max-width: 767px) {
   #menu-container {
     float: none;
     width: auto;
-    height: 32px;
+    height: 30px;
   }
 
   #menu-container h2 {
@@ -59,18 +70,37 @@
 
   #menu-container h2 .menu {
     float: right;
-    vertical-align: middle;
+    margin-top: 2px;
   }
 
   #menu-container h2 .menu svg {
-    display: initial;
-    vertical-align: middle;
+    display: block;
     cursor: pointer;
+  }
+
+  #menu-container h2 .menu svg:hover {
+    background-color: #666666;
+  }
+
+  #menu-container h2 .menu svg:active {
+    background-color: #888888;
+  }
+
+  #menu-container .component-list {
+    position: absolute;
+    top: 100%;
+    left: -300px;
+    width: 300px;
+    height: calc(100vh - 61px);
+    background-color: #222222;
+    border-top: 1px solid #666666;
+    transition: left 0.75s;
+    z-index: 9999;
   }
 
   #main-container {
     float: none;
     width: auto;
-    height: calc(100vh - 62px);
+    height: calc(100vh - 60px);
   }
 }
