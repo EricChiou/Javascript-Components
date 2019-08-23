@@ -1,0 +1,81 @@
+#roulette-container {
+  display: inline-block;
+  padding: 20px 0 20px 0;
+  width: calc(100% - 4px);
+  min-width: 296px;
+  text-align: center;
+  border: solid 2px #BBBBBB;
+}
+
+#roulette-container #result {
+  display: inline-block;
+  margin: 5px 0 0 0;
+  width: 200px;
+  height: 38px;
+  font-size: 20px;
+  border: solid 1px #DDDDDD;
+  line-height: 38px;
+  vertical-align: top;
+}
+
+#roulette-container .animation {
+  position: relative;
+}
+
+#roulette-container .animation #roulette {
+  position: relative;
+  display: inline-block;
+  width: calc(100vw - 1200px);
+  min-width: 270px;
+  height: calc(100vw - 1200px);
+  min-height: 270px;
+  background-color: #FFC319;
+  border: solid 10px #FC433E;
+  border-radius: 100%;
+  transition-timing-function: ease-out;
+}
+
+#roulette-container .animation #roulette .item {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: 50%;
+  width: calc((100vw - 1200px) / 2);
+  min-width: 135px;
+  height: 30px;
+  line-height: 30px;
+  transform-origin: left center;
+}
+
+#roulette-container .animation #roulette .bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc((100vw - 1200px) / 2 - 2px);
+  min-width: 133px;
+  border: solid 1px #AAAAAA;
+  transform-origin: right center;
+}
+
+
+#roulette-container .animation .center {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  width: 50px;
+  height: 50px;
+  background-color: #CB6824;
+  border-radius: 100%;
+  border: solid 5px #A2511B;
+}
+
+#roulette-container .animation .pointer {
+  position: absolute;
+  top: calc(50% - 125px);
+  left: calc(50% - 6px);
+  width: 0px;
+  height: 0px;
+  border-color: #A2511B transparent transparent transparent;
+  border-style: solid solid solid solid;
+  border-width: 50px 6px 50px 6px;
+  transform: rotate(180deg);
+}
