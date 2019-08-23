@@ -25,10 +25,8 @@
 #roulette-container .animation #roulette {
   position: relative;
   display: inline-block;
-  width: calc(100vw - 1200px);
-  min-width: 270px;
-  height: calc(100vw - 1200px);
-  min-height: 270px;
+  width: 270px;
+  height: 270px;
   background-color: #FFC319;
   border: solid 10px #FC433E;
   border-radius: 100%;
@@ -39,8 +37,7 @@
   position: absolute;
   top: calc(50% - 15px);
   left: 50%;
-  width: calc((100vw - 1200px) / 2);
-  min-width: 135px;
+  width: 135px;
   height: 30px;
   line-height: 30px;
   transform-origin: left center;
@@ -50,8 +47,7 @@
   position: absolute;
   top: 50%;
   left: 0;
-  width: calc((100vw - 1200px) / 2 - 2px);
-  min-width: 133px;
+  width: 133px;
   border: solid 1px #AAAAAA;
   transform-origin: right center;
 }
