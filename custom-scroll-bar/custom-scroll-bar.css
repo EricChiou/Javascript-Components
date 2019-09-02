@@ -1,0 +1,47 @@
+.scroll-bar {
+  display: inline-block;
+  width: 310px;
+  height: 280px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.scroll-bar .content {
+  min-height: 400px;
+  background-color: #eeeeee;
+}
+
+.scroll-bar .content .title {
+  font-size: 20px;
+}
+
+.scroll-bar .content .text {
+  margin-left: 10px;
+}
+
+.chrome::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chrome::-webkit-scrollbar-track {
+  background: #dddddd;
+  border-radius: 5px;
+}
+
+.chrome::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 5px;
+}
+
+.chrome::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+.firefox {
+  scrollbar-color: #888888 #dddddd;
+  scrollbar-width: thin;
+}
+
+.firefox:hover {
+  scrollbar-color: #555555 #dddddd;
+}

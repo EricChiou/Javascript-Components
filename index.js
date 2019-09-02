@@ -3,7 +3,8 @@ const componentList = [
   'svg-ring',
   'image-editor',
   'slot-machine',
-  'roulette'
+  'roulette',
+  'custom-scroll-bar'
 ]
 
 let index;

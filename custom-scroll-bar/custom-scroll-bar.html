@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html lang="zh">
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Custom Scroll Bar：Calico & MooMoo</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+
+  <link href="../style.css" rel="stylesheet" type="text/css">
+  <link href="./custom-scroll-bar.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="component-name">Custom Scroll Bar</div>
+  <hr>
+  <div id="custom-scroll-bar">
+    <div class="scroll-bar chrome">
+      <div class="content">
+        <div class="title">In Chrome or Safari:</div>
+        <div class="text">
+          ::-webkit-scrollbar {<br>
+          &nbsp;&nbsp;width: 10px;<br>
+          }<br>
+          <br>
+          ::-webkit-scrollbar-track {<br>
+          &nbsp;&nbsp;background: #dddddd;<br>
+          &nbsp;&nbsp;border-radius: 5px;<br>
+          }<br>
+          <br>
+          ::-webkit-scrollbar-thumb {<br>
+          &nbsp;&nbsp;background: #888888;<br>
+          &nbsp;&nbsp;border-radius: 5px;<br>
+          }<br>
+          <br>
+          ::-webkit-scrollbar-thumb:hover {<br>
+          &nbsp;&nbsp;background: #555555;<br>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="scroll-bar firefox">
+      <div class="content">
+        <div class="title">In Firfox:</div>
+        <div class="text">
+          .firefox {<br>
+          &nbsp;&nbsp;scrollbar-color: #888888 #dddddd;<br>
+          &nbsp;&nbsp; scrollbar-width: thin;<br>
+          }<br>
+          <br>
+          .firefox:hover {<br>
+          &nbsp;&nbsp; scrollbar-color: #555555 #dddddd;<br>
+          }<br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./custom-scroll-bar.js"></script>
+</body>
+
+</html>
