@@ -1,15 +1,23 @@
 const componentList = [
-  'finger-slide',
-  'svg-ring',
-  'image-editor',
-  'slot-machine',
-  'roulette',
-  'custom-scroll-bar'
+  { title: 'Finger Slide', path: './finger-slide/finger-slide.html' },
+  { title: 'Svg Ring', path: './svg-ring/svg-ring.html' },
+  { title: 'Image Editor', path: './image-editor/image-editor.html' },
+  { title: 'Slot Machine', path: './slot-machine/slot-machine.html' },
+  { title: 'Roulette', path: './roulette/roulette.html' },
+  { title: 'Custom Scroll Bar', path: './custom-scroll-bar/custom-scroll-bar.html' },
+  { title: 'Crypto Sha3', path: './crypto-sha3/crypto-sha3.html' },
 ]
 
 let index;
 
 window.onload = () => {
+  for (let i = 0; i < componentList.length; i++) {
+    const li = document.createElement('li');
+    li.innerText = componentList[i].title;
+    li.onclick = () => { selectComponent(i) };
+    document.getElementsByClassName('components')[0].appendChild(li);
+  }
+
   selectComponent(0);
 
   window.addEventListener('resize', onResize);
@@ -19,7 +27,7 @@ function selectComponent(i) {
   if (index === i) { return; }
 
   index = i;
-  document.getElementById('component-iframe').src = `./${componentList[index]}/${componentList[index]}.html`;
+  document.getElementById('component-iframe').src = componentList[index].path;
 
   if (window.innerWidth < 768) {
     closeMenu();

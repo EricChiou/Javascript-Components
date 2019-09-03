@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html lang="zh">
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Crypto Sha3：Calico & MooMoo</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+
+  <link href="../style.css" rel="stylesheet" type="text/css">
+  <link href="./crypto-sha3.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="component-name">Crypto Sha3</div>
+  <hr>
+  <div id="crypto-sha3">
+    <select id="length">
+      <option value="224">sha3-224</option>
+      <option value="256">sha3-256</option>
+      <option value="384" selected>sha3-384</option>
+      <option value="512">sha3-512</option>
+    </select>
+    <br>
+    <input id="crypto" />
+    <button onclick="encrypt()">encrypt</button>
+    <br>
+    <textarea id="result" disabled></textarea>
+  </div>
+
+  <script type="text/javascript" src="./sha3.min.js"></script>
+  <script type="text/javascript" src="./crypto-sha3.js"></script>
+</body>
+
+</html>
