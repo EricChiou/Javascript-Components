@@ -29,9 +29,7 @@ function selectComponent(i) {
   index = i;
   document.getElementById('component-iframe').src = componentList[index].path;
 
-  if (window.innerWidth < 768) {
-    closeMenu();
-  }
+  closeMenu();
 }
 
 function onResize() {
@@ -57,6 +55,8 @@ function maskHandler(menu) {
 }
 
 function closeMenu() {
+  if (window.innerWidth > 767) { return; }
+
   const menu = document.getElementsByClassName('component-list')[0];
   if (!menu) { return; }
 
@@ -68,7 +68,6 @@ function showAbout() {
   document.getElementById('component-iframe').src = `./about/about.html`;
 
   index = null;
-  if (window.innerWidth < 768) {
-    closeMenu();
-  }
+
+  closeMenu();
 }
