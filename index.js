@@ -63,3 +63,12 @@ function closeMenu() {
   menu.style.left = '-300px';
   maskHandler(menu);
 }
+
+function showAbout() {
+  document.getElementById('component-iframe').src = `./about/about.html`;
+
+  index = null;
+  if (window.innerWidth < 768) {
+    closeMenu();
+  }
+}

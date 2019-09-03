@@ -1,0 +1,7 @@
+#about iframe {
+  width: 640px;
+  max-width: 100%;
+  min-height: calc(100vh - 85px);
+  border: none;
+  overflow: auto;
+}
