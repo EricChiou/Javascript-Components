@@ -5,7 +5,8 @@ const componentList = [
   { title: 'Slot Machine', path: './slot-machine/slot-machine.html' },
   { title: 'Roulette', path: './roulette/roulette.html' },
   { title: 'Custom Scroll Bar', path: './custom-scroll-bar/custom-scroll-bar.html' },
-  { title: 'Crypto Sha3', path: './crypto-sha3/crypto-sha3.html' },
+  { title: 'Crypto SHA-3', path: './crypto-sha3/crypto-sha3.html' },
+  { title: 'RSA-OAEP Encrypt', path: './rsa-oaep-encrypt/rsa-oaep-encrypt.html' },
 ]
 
 let index;

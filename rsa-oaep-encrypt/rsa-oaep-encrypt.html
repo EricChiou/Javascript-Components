@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html lang="zh">
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>RSA-OAEP Encrypt：Calico & MooMoo</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.png">
+
+  <link href="../style.css" rel="stylesheet" type="text/css">
+  <link href="./rsa-oaep-encrypt.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="component-name">RSA-OAEP Encrypt</div>
+  <hr>
+  <div id="rsa-oaep-encrypt">
+    <div class="key">
+      Public Key<br>
+      Hash：<select id="hash">
+        <option value="SHA-224">SHA-224</option>
+        <option value="SHA-256">SHA-256</option>
+        <option value="SHA-384">SHA-384</option>
+        <option value="SHA-512" selected>SHA-512</option>
+      </select>
+      <textarea id="public-key"></textarea>
+    </div>
+    <hr>
+    <div class="crypto">
+      Text<br>
+      <textarea id="text"></textarea>
+    </div>
+    <div class="convert">
+      <button onclick="doEncrypt()">Encrypt</button>
+    </div>
+    <div class="crypto">
+      Encrypted<br>
+      <textarea id="encrypted" disabled></textarea>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./rsa-oaep-encrypt.js"></script>
+</body>
+
+</html>
