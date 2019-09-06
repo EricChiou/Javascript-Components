@@ -7,6 +7,7 @@ const componentList = [
   { title: 'Custom Scroll Bar', path: './custom-scroll-bar/custom-scroll-bar.html' },
   { title: 'Crypto SHA-3', path: './crypto-sha3/crypto-sha3.html' },
   { title: 'RSA-OAEP Encrypt', path: './rsa-oaep-encrypt/rsa-oaep-encrypt.html' },
+  { title: 'Device Detecter', path: './device-detecter/device-detecter.html' },
 ]
 
 let index;

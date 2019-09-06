@@ -1,0 +1,7 @@
+#device-info li .true {
+  color: #0000ff;
+}
+
+#device-info li .false {
+  color: #ff0000;
+}
