@@ -1,0 +1,38 @@
+.tool-tip-container {
+    display: inline-block;
+    position: relative;
+    margin: 50px 0 0 50px;
+    width: 24px;
+    height: 24px;
+    background-color: aqua;
+    border-radius: 12px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.tool-tip-container .tool-tip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    padding: 5px 8px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+}
+
+.tool-tip-container .tool-tip-arrow {
+    display: none;
+    position: absolute;
+    left: calc(50% - 5px);
+    bottom: calc(100%);
+    border: 5px solid;
+    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+.tool-tip-container:hover .tool-tip {
+    display: block;
+}
+
+.tool-tip-container:hover .tool-tip-arrow {
+    display: block;
+}

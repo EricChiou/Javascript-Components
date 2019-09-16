@@ -8,6 +8,7 @@ const componentList = [
   { title: 'Crypto SHA-3', path: './crypto-sha3/crypto-sha3.html' },
   { title: 'RSA-OAEP Encrypt', path: './rsa-oaep-encrypt/rsa-oaep-encrypt.html' },
   { title: 'Device Detecter', path: './device-detecter/device-detecter.html' },
+  { title: 'Tool Tip', path: './tool-tip/tool-tip.html' },
 ]
 
 let index;
