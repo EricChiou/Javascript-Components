@@ -1,0 +1,21 @@
+body {
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  top: calc(25vh + 37px);
+  right: 0;
+  left: 0;
+  font-size: 42px;
+  line-height: 40px;
+  text-align: center;
+  color: #aaaaaa;
+}
+
+#mouse-effects {
+  position: relative;
+  /* width: calc(100% - 2px); */
+  /* height: 50vh; */
+  border: 1px solid #666666;
+}

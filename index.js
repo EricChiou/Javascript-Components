@@ -9,6 +9,7 @@ const componentList = [
   { title: 'RSA-OAEP Encrypt', path: './rsa-oaep-encrypt/rsa-oaep-encrypt.html' },
   { title: 'Device Detecter', path: './device-detecter/device-detecter.html' },
   { title: 'Tool Tip', path: './tool-tip/tool-tip.html' },
+  { title: 'Mouse Effects', path: './mouse-effects/mouse-effects.html' },
 ]
 
 let index;
