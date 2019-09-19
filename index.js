@@ -10,6 +10,7 @@ const componentList = [
   { title: 'Device Detecter', path: './device-detecter/device-detecter.html' },
   { title: 'Tool Tip', path: './tool-tip/tool-tip.html' },
   { title: 'Mouse Effects', path: './mouse-effects/mouse-effects.html' },
+  { title: 'Text Editor', path: './text-editor/text-editor.html' },
 ]
 
 let index;
