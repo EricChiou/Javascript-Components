@@ -35,14 +35,18 @@
           <!-- Background Ring -->
           <circle cx="150" cy="150" r="130" stroke="#eeeeee" stroke-dasharray="816.4 816.4"></circle>
           <!-- Left Half Ring -->
-          <circle cx="150" cy="150" r="130" stroke="url('#gradient1')" stroke-dasharray="737.76 816.4"></circle>
+          <circle id="left" cx="150" cy="150" r="130" stroke="url('#gradient1')" stroke-dasharray="0 816.4"></circle>
           <!-- Right Half Ring -->
-          <circle cx="150" cy="150" r="130" stroke="url('#gradient2')" stroke-dasharray="408.2 816.4"></circle>
+          <circle id="right" cx="150" cy="150" r="130" stroke="url('#gradient2')" stroke-dasharray="0 816.4"></circle>
         </g>
       </svg>
       <span id="timeSecond" class="time-second"></span>
     </div>
+    <input class="range" type="range" min="0" max="100" oninput="onInput(this)">
+    <div class="value"></div>
   </div>
+
+  <script type="text/javascript" src="./svg-ring.js"></script>
 </body>
 
 </html>
