@@ -13,6 +13,9 @@ function init() {
   if (slider) {
     slider.addEventListener('touchstart', onTouchstart, false);
     slider.addEventListener('touchend', onTouchend, false);
+
+    slider.addEventListener('mousedown', onMouseDown, false);
+    slider.addEventListener('mouseup', onMouseUp, false);
   }
 }
 
@@ -24,23 +27,37 @@ function onTouchstart(event) {
 
 function onTouchend(event) {
   const touch = event.changedTouches[0];
-  if (event.timeStamp - startTime > detectTime) {
+  detectSlide(touch.screenX, touch.screenY, event.timeStamp);
+}
+
+function onMouseDown(event) {
+  startTime = event.timeStamp;
+  screenX = event.screenX;
+  screenY = event.screenY;
+}
+
+function onMouseUp(event) {
+  detectSlide(event.screenX, event.screenY, event.timeStamp);
+}
+
+function detectSlide(x, y, endTime) {
+  if (endTime - startTime > detectTime) {
     return;
   }
-  xVar = Math.abs(touch.screenX - screenX);
-  yVar = Math.abs(touch.screenY - screenY);
+  xVar = Math.abs(x - screenX);
+  yVar = Math.abs(y - screenY);
   if (xVar < threshold && yVar < threshold) {
     return;
   }
 
-  if (Math.abs(touch.screenX - screenX) > Math.abs(touch.screenY - screenY)) {
-    if (touch.screenX - screenX > 0) {
+  if (Math.abs(x - screenX) > Math.abs(y - screenY)) {
+    if (x - screenX > 0) {
       slider.innerText = 'Slide Right';
     } else {
       slider.innerText = 'Slide Left';
     }
   } else {
-    if (touch.screenY - screenY > 0) {
+    if (y - screenY > 0) {
       slider.innerText = 'Slide Down';
     } else {
       slider.innerText = 'Slide Up';

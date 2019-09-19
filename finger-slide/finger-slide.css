@@ -5,4 +5,5 @@
   font-size: 32px;
   line-height: 200px;
   text-align: center;
+  user-select: none;
 }
