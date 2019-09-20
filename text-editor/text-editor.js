@@ -8,22 +8,11 @@ function onInput(e) {
 
   document.getElementById('position').style.display = 'none';
 
-  if (!window.getSelection) { return; }
-  const selection = window.getSelection();
-  const range = selection.getRangeAt(0);
+  const textArea = document.getElementById('text-area');
 
-  const preCaretRange = range.cloneRange();
-  preCaretRange.selectNodeContents(e.target);
-  preCaretRange.setEnd(range.endContainer, range.endOffset);
-  const index = preCaretRange.toString().length;
-
-  // document.getElementById('text-area').innerText = document.getElementById('text-area').innerText;
-
-  // const newRange = document.createRange();
-  // newRange.setStart(e.target, index);
-  // newRange.collapse(true);
-  // selection.removeAllRanges();
-  // selection.addRange(range);
+  if (textArea.innerText.length === 0 || !textArea.getElementsByTagName('div').length) {
+    textArea.innerHTML = `<div><br></div>`;
+  }
 }
 
 function insertStr() {
@@ -36,16 +25,37 @@ function insertStr() {
   if (!selection.rangeCount) { return; }
   const range = selection.getRangeAt(0);
 
-  if (range.commonAncestorContainer.parentElement.contentEditable !== 'true' &&
-    range.commonAncestorContainer.parentElement.parentElement.contentEditable !== 'true'
-  ) {
-    return;
+  if (!detectTextArea(range.commonAncestorContainer)) { return; }
+
+  const index = selection.focusOffset;
+  let element = null;
+  if (range.commonAncestorContainer.innerText) {
+    element = range.commonAncestorContainer;
+    element.innerText = insert;
+
+  } else {
+    element = range.commonAncestorContainer.parentElement;
+    element.innerText = element.innerText.slice(0, index) + insert + element.innerText.slice(index);
   }
 
-  const element = range.commonAncestorContainer.parentElement;
-  const index = selection.focusOffset;
+  const newRange = document.createRange();
+  newRange.setStart(element.childNodes[0], index + insert.length);
+  newRange.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(newRange);
+}
 
-  element.innerText = element.innerText.slice(0, index) + insert + element.innerText.slice(index);
+function detectTextArea(element) {
+  let parentElement = element.parentElement;
+  while (parentElement) {
+    if (parentElement.id === 'text-area') {
+      return true;
+    }
+
+    parentElement = parentElement.parentElement;
+  }
+
+  return false;
 }
 
 function showCaretPos() {
