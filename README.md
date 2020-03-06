@@ -1,5 +1,5 @@
 ## Javascript Components
-Demo: https://www.calicomoo.ml/javascript-components/  
+Demo: https://www.calicomoomoo.ml/javascript-components/  
 Made with pure Javascript, HTML5 and CSS3.  
   
 ## How to demo
