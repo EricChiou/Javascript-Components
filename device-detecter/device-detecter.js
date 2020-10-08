@@ -27,11 +27,11 @@ function getDeviceInfo() {
     mobile: /(ipod|ipad|iphone|android|mobile)/.test(userAgent) ? true : false,
     ios: /(ipod|ipad|iphone)/.test(userAgent) ? true : false,
     android: /(android)/.test(userAgent) ? true : false,
-    chrome: /(chrome)/.test(userAgent) ? true : false,
+    chrome: /(chrome)/.test(userAgent) && !/(edg)/.test(userAgent) ? true : false,
     safari: /(safari)/.test(userAgent) && !/(chrome)/.test(userAgent) ? true : false,
     firefox: /(firefox)/.test(userAgent) ? true : false,
     ie: /(msie)/.test(userAgent) ? true : false,
-    edge: /(edge|trident)/.test(userAgent) ? true : false,
+    edge: /(edge|trident|edg)/.test(userAgent) ? true : false,
     webView: /(fbav|line|wv|iab|webview)/.test(userAgent) ? true : false,
   };
 }
